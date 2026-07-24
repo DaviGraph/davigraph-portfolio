@@ -9,6 +9,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import logoAsset from "@/assets/davi-graph-logo.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -142,9 +143,12 @@ function Nav() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10">
-        <a href="#top" className="flex items-center gap-2 font-display text-sm font-bold tracking-tight">
-          <span className="inline-block h-2 w-2 rounded-full bg-[color:var(--indigo-accent)] shadow-[0_0_16px_var(--indigo-glow)]" />
-          Davi Graph
+        <a href="#top" className="flex items-center gap-2" aria-label="Davi Graph — home">
+          <img
+            src={logoAsset.url}
+            alt="Davi Graph logo"
+            className="h-7 w-auto rounded-md bg-white/95 object-contain px-1 py-0.5 shadow-sm"
+          />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           <a href="#projects" className="transition-colors hover:text-foreground">Work</a>
