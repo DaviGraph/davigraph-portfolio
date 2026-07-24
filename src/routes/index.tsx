@@ -147,7 +147,7 @@ function Nav() {
           <img
             src={logoAsset.url}
             alt="Davi Graph logo"
-            className="h-7 w-auto rounded-md bg-white/95 object-contain px-1 py-0.5 shadow-sm"
+            className="h-9 w-auto rounded-lg bg-white/95 object-contain px-1.5 py-1 shadow-sm"
           />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
