@@ -6,10 +6,9 @@ import {
   Mail,
   MapPin,
   Phone,
-  Sparkles,
 } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
-import logoAsset from "@/assets/davi-graph-logo.jpg.asset.json";
+import markAsset from "@/assets/davi-graph-mark.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -114,19 +113,18 @@ function Portfolio() {
 
   return (
     <div ref={rootRef} className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
-      {/* Ambient glow */}
       <div
         aria-hidden
         className="pointer-events-none fixed inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(60rem 60rem at 80% -10%, color-mix(in oklab, var(--indigo-accent) 22%, transparent), transparent 60%), radial-gradient(50rem 50rem at -10% 20%, color-mix(in oklab, var(--indigo-glow) 14%, transparent), transparent 60%)",
+            "radial-gradient(60rem 60rem at 80% -10%, color-mix(in oklab, var(--indigo-accent) 22%, transparent), transparent 60%), radial-gradient(50rem 50rem at -10% 20%, color-mix(in oklab, var(--brand-red) 10%, transparent), transparent 60%)",
         }}
       />
 
       <Nav />
 
-      <main className="mx-auto max-w-6xl px-6 pb-32 md:px-10">
+      <main className="mx-auto max-w-5xl px-6 pb-24 md:px-10">
         <Hero />
         <Projects />
         <About />
@@ -142,15 +140,15 @@ function Portfolio() {
 function Nav() {
   return (
     <header className="sticky top-0 z-40 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 md:px-10">
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-5 md:px-10">
         <a href="#top" className="flex items-center gap-2" aria-label="Davi Graph — home">
           <img
-            src={logoAsset.url}
-            alt="Davi Graph logo"
-            className="h-9 w-auto rounded-lg bg-white/95 object-contain px-1.5 py-1 shadow-sm"
+            src={markAsset.url}
+            alt="Davi Graph"
+            className="h-8 w-auto object-contain"
           />
         </a>
-        <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
+        <nav className="font-mono-label hidden items-center gap-8 text-[11px] text-muted-foreground md:flex">
           <a href="#projects" className="transition-colors hover:text-foreground">Work</a>
           <a href="#about" className="transition-colors hover:text-foreground">About</a>
           <a href="#stack" className="transition-colors hover:text-foreground">Stack</a>
@@ -158,7 +156,7 @@ function Nav() {
         </nav>
         <a
           href="#contact"
-          className="rounded-full border border-border px-4 py-1.5 text-xs font-medium text-foreground/90 transition-colors hover:border-[color:var(--indigo-accent)] hover:text-foreground"
+          className="font-mono-label rounded-none border border-border px-4 py-1.5 text-[10px] text-foreground/90 transition-colors hover:border-[color:var(--brand-red)] hover:text-foreground"
         >
           Hire me
         </a>
@@ -169,18 +167,19 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative pt-16 md:pt-28">
+    <section id="top" className="relative pt-12 md:pt-20">
       <div data-reveal className="reveal">
-        <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs font-medium text-muted-foreground">
-          <Sparkles className="h-3.5 w-3.5 text-[color:var(--indigo-glow)]" />
-          Founder · Davi Graph
+        <span className="font-mono-label inline-flex items-center gap-2 text-[10px] text-muted-foreground">
+          <span className="text-[color:var(--brand-red)]">[</span>
+          Founder — Davi Graph
+          <span className="text-[color:var(--brand-red)]">]</span>
         </span>
       </div>
 
       <h1
         data-reveal
         data-reveal-delay="100"
-        className="reveal font-display mt-8 text-5xl font-bold leading-[0.95] tracking-tight md:text-7xl lg:text-8xl"
+        className="reveal font-display mt-6 text-5xl font-bold leading-[0.95] md:text-7xl"
       >
         David
         <br />
@@ -192,24 +191,24 @@ function Hero() {
       <p
         data-reveal
         data-reveal-delay="200"
-        className="reveal mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
+        className="reveal mt-8 max-w-2xl text-base leading-[1.7] text-muted-foreground md:text-lg"
       >
         I build and ship software fast — out of{" "}
         <span className="text-foreground">Abraka, Nigeria</span>. Products people actually use,
         made with a small stack and a short feedback loop.
       </p>
 
-      <div data-reveal data-reveal-delay="300" className="reveal mt-10 flex flex-wrap gap-3">
+      <div data-reveal data-reveal-delay="300" className="reveal mt-8 flex flex-wrap gap-3">
         <a
           href="#projects"
-          className="group inline-flex items-center gap-2 rounded-full bg-[color:var(--indigo-accent)] px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_10px_40px_-10px_var(--indigo-glow)] transition-all hover:translate-y-[-1px] hover:shadow-[0_20px_60px_-10px_var(--indigo-glow)]"
+          className="font-mono-label group inline-flex items-center gap-2 bg-[color:var(--brand-red)] px-5 py-3 text-[11px] text-white shadow-[0_10px_40px_-10px_var(--brand-red)] transition-all hover:translate-y-[-1px]"
         >
           View my work
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
         <a
           href="#contact"
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-card/40 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:border-[color:var(--indigo-accent)]"
+          className="font-mono-label inline-flex items-center gap-2 border border-border bg-card/40 px-5 py-3 text-[11px] text-foreground transition-colors hover:border-[color:var(--brand-red)]"
         >
           Get in touch
         </a>
@@ -220,59 +219,62 @@ function Hero() {
 
 function Projects() {
   return (
-    <section id="projects" className="pt-32 md:pt-48">
-      <SectionHeader eyebrow="Selected work" title="Projects" caption="04 — shipped, in-flight, and prototypes." />
+    <section id="projects" className="pt-24 md:pt-36">
+      <SectionHeader index="01" eyebrow="Work" title="Projects" caption="Shipped, in-flight, and prototypes." />
 
-      <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-4 md:auto-rows-[minmax(220px,auto)]">
+      <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-4 md:auto-rows-[minmax(220px,auto)]">
         {projects.map((p, i) => (
           <article
             key={p.name}
             data-reveal
             data-reveal-delay={i * 90}
-            className={`reveal group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-border bg-card/60 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--indigo-accent)]/60 hover:bg-card md:p-8 ${p.span}`}
+            className={`reveal group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-card/60 p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--brand-red)]/60 hover:bg-card md:p-8 ${p.span}`}
           >
             <div
               aria-hidden
               className="pointer-events-none absolute -right-24 -top-24 h-48 w-48 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100"
-              style={{ background: "var(--indigo-glow)" }}
+              style={{ background: "var(--brand-red)" }}
             />
             <div className="relative">
               <div className="flex items-center justify-between gap-4">
+                <span className="font-mono-label text-[10px] text-muted-foreground">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
                 <span
-                  className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider ring-1 ${statusStyles(p.status)}`}
+                  className={`font-mono-label inline-flex items-center gap-1.5 rounded-none px-2 py-1 text-[9px] ring-1 ${statusStyles(p.status)}`}
                 >
                   {p.status === "LIVE" && (
                     <span className="inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[color:var(--status-live)]" />
                   )}
                   {p.status}
                 </span>
-                {p.link && (
-                  <a
-                    href={p.link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1 text-xs text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    Visit
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </a>
-                )}
               </div>
 
-              <h3 className="font-display mt-6 text-3xl font-bold tracking-tight md:text-4xl">
+              <h3 className="font-display mt-6 text-3xl font-bold md:text-4xl">
                 {p.name}
               </h3>
               <p className="mt-2 text-base font-medium text-foreground/90">{p.tagline}</p>
-              <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-3 max-w-xl text-sm leading-[1.7] text-muted-foreground">
                 {p.description}
               </p>
+              {p.link && (
+                <a
+                  href={p.link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-mono-label mt-4 inline-flex items-center gap-1 text-[10px] text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  Visit
+                  <ArrowUpRight className="h-3 w-3" />
+                </a>
+              )}
             </div>
 
             <div className="relative mt-6 flex flex-wrap gap-2">
               {p.tags.map((t) => (
                 <span
                   key={t}
-                  className="rounded-full border border-border bg-background/60 px-2.5 py-1 text-[11px] text-muted-foreground"
+                  className="font-mono-label rounded-none border border-border bg-background/60 px-2 py-1 text-[9px] text-muted-foreground"
                 >
                   {t}
                 </span>
@@ -287,26 +289,26 @@ function Projects() {
 
 function About() {
   return (
-    <section id="about" className="pt-32 md:pt-48">
-      <SectionHeader eyebrow="About" title="Learn by shipping." caption="A short story." />
+    <section id="about" className="pt-24 md:pt-36">
+      <SectionHeader index="02" eyebrow="About" title="Learn by shipping." caption="A short story." />
 
-      <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-5">
+      <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-5">
         <div
           data-reveal
-          className="reveal md:col-span-3 rounded-3xl border border-border bg-card/60 p-8 md:p-10"
+          className="reveal md:col-span-3 rounded-2xl border border-border bg-card/60 p-6 md:p-8"
         >
-          <p className="text-lg leading-relaxed text-foreground/90 md:text-xl">
+          <p className="text-lg leading-[1.7] text-foreground/90 md:text-xl">
             I'm a <span className="text-[color:var(--indigo-glow)]">200-level Computer Science</span>{" "}
             student at Delta State University, Abraka. I learn by building and shipping real
             products — not tutorials.
           </p>
-          <p className="mt-6 leading-relaxed text-muted-foreground">
+          <p className="mt-6 leading-[1.7] text-muted-foreground">
             I lean on AI-assisted workflows to move fast without cutting corners on quality. The
             goal is always the same: get a working thing in front of real users, then iterate.
           </p>
         </div>
 
-        <div className="md:col-span-2 grid grid-cols-2 gap-4">
+        <div className="md:col-span-2 grid grid-cols-2 gap-3">
           <StatCard label="Based in" value="Abraka, NG" delay={80} />
           <StatCard label="Role" value="Founder" delay={160} />
           <StatCard label="Studio" value="Davi Graph" delay={240} />
@@ -322,9 +324,9 @@ function StatCard({ label, value, delay }: { label: string; value: string; delay
     <div
       data-reveal
       data-reveal-delay={delay}
-      className="reveal rounded-3xl border border-border bg-card/60 p-5"
+      className="reveal rounded-2xl border border-border bg-card/60 p-5"
     >
-      <div className="text-[11px] uppercase tracking-wider text-muted-foreground">{label}</div>
+      <div className="font-mono-label text-[10px] text-muted-foreground">{label}</div>
       <div className="font-display mt-2 text-xl font-bold">{value}</div>
     </div>
   );
@@ -332,25 +334,25 @@ function StatCard({ label, value, delay }: { label: string; value: string; delay
 
 function Stack() {
   return (
-    <section id="stack" className="pt-32 md:pt-48">
-      <SectionHeader eyebrow="Toolkit" title="Stack" caption="What I reach for." />
+    <section id="stack" className="pt-24 md:pt-36">
+      <SectionHeader index="03" eyebrow="Toolkit" title="Stack" caption="What I reach for." />
 
-      <div className="mt-12 grid grid-cols-1 gap-4 md:grid-cols-4">
+      <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-4">
         {stack.map((group, i) => (
           <div
             key={group.label}
             data-reveal
             data-reveal-delay={i * 100}
-            className="reveal rounded-3xl border border-border bg-card/60 p-6"
+            className="reveal rounded-2xl border border-border bg-card/60 p-6"
           >
-            <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
+            <div className="font-mono-label text-[10px] text-muted-foreground">
               {group.label}
             </div>
             <div className="mt-4 flex flex-wrap gap-2">
               {group.items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-border bg-background/40 px-3 py-1.5 text-sm text-foreground/90"
+                  className="rounded-none border border-border bg-background/40 px-3 py-1.5 text-sm text-foreground/90"
                 >
                   {item}
                 </span>
@@ -396,19 +398,19 @@ function Contact() {
   ];
 
   return (
-    <section id="contact" className="pt-32 md:pt-48">
-      <SectionHeader eyebrow="Contact" title="Let's build something." caption="Open for work." />
+    <section id="contact" className="pt-24 md:pt-36">
+      <SectionHeader index="04" eyebrow="Contact" title="Let's build something." caption="Open for work." />
 
-      <div data-reveal className="reveal mt-12 rounded-3xl border border-border bg-card/60 p-8 md:p-12">
-        <h3 className="font-display text-3xl font-bold leading-tight tracking-tight md:text-5xl">
-          Open to <span className="text-[color:var(--indigo-glow)]">freelance work</span> and
-          remote <span className="text-[color:var(--indigo-glow)]">internships</span>.
+      <div data-reveal className="reveal mt-10 rounded-2xl border border-border bg-card/60 p-6 md:p-8">
+        <h3 className="font-display text-3xl font-bold leading-tight md:text-5xl">
+          Open to <span className="text-[color:var(--brand-red)]">freelance work</span> and
+          remote <span className="text-[color:var(--brand-red)]">internships</span>.
         </h3>
-        <p className="mt-4 max-w-xl text-muted-foreground">
+        <p className="mt-4 max-w-xl leading-[1.7] text-muted-foreground">
           If you're building something interesting or need a fast, capable pair of hands — say hi.
         </p>
 
-        <div className="mt-10 grid grid-cols-1 gap-3 md:grid-cols-4">
+        <div className="mt-8 grid grid-cols-1 gap-3 md:grid-cols-4">
           {contacts.map((c, i) => (
             <a
               key={c.label}
@@ -417,14 +419,14 @@ function Contact() {
               rel={c.href.startsWith("http") ? "noreferrer" : undefined}
               data-reveal
               data-reveal-delay={i * 80}
-              className={`reveal group flex items-center justify-between gap-4 rounded-2xl border border-border bg-background/40 p-5 transition-all hover:-translate-y-0.5 hover:border-[color:var(--indigo-accent)]/60 ${c.span}`}
+              className={`reveal group flex items-center justify-between gap-4 rounded-2xl border border-border bg-background/40 p-5 transition-all hover:-translate-y-0.5 hover:border-[color:var(--brand-red)]/60 ${c.span}`}
             >
               <div className="flex min-w-0 items-center gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[color:var(--indigo-accent)]/15 text-[color:var(--indigo-glow)]">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[color:var(--brand-red)]/15 text-[color:var(--brand-red)]">
                   <c.icon className="h-5 w-5" />
                 </div>
                 <div className="min-w-0">
-                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground">
+                  <div className="font-mono-label text-[10px] text-muted-foreground">
                     {c.label}
                   </div>
                   <div className="truncate text-sm text-foreground">{c.value}</div>
@@ -440,10 +442,12 @@ function Contact() {
 }
 
 function SectionHeader({
+  index,
   eyebrow,
   title,
   caption,
 }: {
+  index: string;
   eyebrow: string;
   title: string;
   caption: string;
@@ -451,14 +455,16 @@ function SectionHeader({
   return (
     <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div data-reveal className="reveal">
-        <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-          {eyebrow}
+        <div className="font-mono-label flex items-center gap-3 text-[10px] text-muted-foreground">
+          <span className="text-[color:var(--brand-red)]">{index}</span>
+          <span className="h-px w-8 bg-border" />
+          <span>{eyebrow}</span>
         </div>
-        <h2 className="font-display mt-3 text-4xl font-bold tracking-tight md:text-6xl">
+        <h2 className="font-display mt-4 text-4xl font-bold md:text-6xl">
           {title}
         </h2>
       </div>
-      <div data-reveal data-reveal-delay="120" className="reveal text-sm text-muted-foreground">
+      <div data-reveal data-reveal-delay="120" className="reveal font-mono-label text-[10px] text-muted-foreground">
         {caption}
       </div>
     </div>
@@ -468,13 +474,13 @@ function SectionHeader({
 function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-4 px-6 py-10 text-sm text-muted-foreground md:flex-row md:items-center md:px-10">
+      <div className="font-mono-label mx-auto flex max-w-5xl flex-col items-start justify-between gap-4 px-6 py-8 text-[10px] text-muted-foreground md:flex-row md:items-center md:px-10">
         <div className="flex items-center gap-2">
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--indigo-accent)]" />
+          <span className="inline-block h-1.5 w-1.5 rounded-full bg-[color:var(--brand-red)]" />
           © 2026 Davi Graph
         </div>
         <div className="flex items-center gap-2">
-          <MapPin className="h-3.5 w-3.5" />
+          <MapPin className="h-3 w-3" />
           Abraka, Nigeria
         </div>
       </div>

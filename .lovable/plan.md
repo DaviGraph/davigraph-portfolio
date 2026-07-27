@@ -1,38 +1,52 @@
-- Portfolio for David Onyekachukwu — Founder, Davi Graph
+## Goal
 
-**Direction:** Dark Midnight Indigo palette (`#0a0a1a` bg, `#4f46e5` accent) · Syne headings + Plus Jakarta Sans body · bento-grid layout · generous whitespace · subtle scroll/hover animations.
+Replace the nav logo with just the red "D" mark (no plate), and refine typography + spacing across all sections to a "techy & precise" feel that matches the logo's confident, engineered brand energy.
 
-### Page structure (single-page, anchor-scrolled)
+## 1. Logo swap
 
-1. **Hero**
-  - Small kicker: "Founder · Davi Graph"
-  - Massive Syne name: "David Onyekachukwu"
-  - Thesis: "I build and ship software fast — out of , Nigeria."
-  - CTAs: `View my work` (indigo filled) · `Get in touch` (ghost with border)
-  - Subtle animated grain / indigo glow orb in the background
-2. **Projects (bento grid — hero section)**
-  - Asymmetric 4-tile bento (mixed sizes, not uniform):
-    - **CrossDrop** — large feature tile, LIVE badge, live link, QR/PWA/Pidgin/auto-expire highlights
-    - **ElonVest** — medium tile, CLIENT PROJECT badge, Next.js + Alpaca API
-    - **StudyPadi** — medium tile, IN PROGRESS badge, NERDC + Claude API
-    - **ARIA** — small tile, PROTOTYPE badge, Electron voice assistant
-  - Status badges use color-coded pills (LIVE=mint, CLIENT=indigo, IN PROGRESS=amber, PROTOTYPE=muted)
-  - Hover: tile lifts, accent border glow
-3. **About** — two-column: short bio (CS student, Delta State University, learn-by-shipping, AI-assisted workflow) + a small stat/fact bento (location, year, role)
-4. **Stack** — categorized chips in a bento (Frontend / Backend / AI tools / Deployment)
-5. **Contact** — big statement ("Open to freelance & remote internships") + bento grid of contact tiles (Email, GitHub, LinkedIn, Phone), each clickable
-6. **Footer** — minimal: © 2026 Davi Graph · Abraka, Nigeria
+- Upload `user-uploads://10970-removebg-preview.png` to Lovable Assets as `davi-graph-mark.png` (the D-only crop; we'll use CSS `object-position` + fixed width to show only the D from the full lockup, OR crop the D out at upload time and store just the mark). Preferred: crop to just the D via an intermediate edit, then upload — cleaner and lighter.
+- Replace the nav `<img>` in `src/routes/index.tsx`:
+  - No white background plate, no padding, no rounded box.
+  - Render at ~28–32px tall, sits directly on the dark background.
+  - `alt="Davi Graph"`.
+- Update favicon in `src/routes/__root.tsx` to point to the new D mark asset (copied into `public/favicon.png`); remove the old `davi-graph-logo.jpg` asset pointer.
 
-### Technical notes
+## 2. Typography refinements (techy & precise)
 
-- Route: rewrite `src/routes/index.tsx` (replace placeholder) with all sections + proper `head()` metadata (title, description, og tags — no og:image).
-- Design tokens: update `src/styles.css` — replace light-first tokens with dark-first Midnight Indigo palette in `:root`; add `--accent-indigo`, `--accent-indigo-glow`, indigo gradient token, subtle shadow-glow token.
-- Fonts: add Google Fonts `<link>` for Syne (600, 700, 800) + Plus Jakarta Sans (400, 500, 600) in `src/routes/__root.tsx` head; add `--font-display: "Syne"` and `--font-sans: "Plus Jakarta Sans"` in `@theme`.
-- Components: build inline within `index.tsx` split into small subcomponents (Hero, ProjectsBento, ProjectCard, About, Stack, Contact, Footer). No shadcn overrides needed beyond semantic tokens.
-- Animations: intersection-observer based fade/translate on section enter (small custom hook, no new deps); hover transforms on tiles via Tailwind transitions.
-- Icons: use `lucide-react` (already available) sparingly for contact + project status.
-- Accessibility: semantic `<section>`, single `<h1>`, `aria-label`s on icon links, focus-visible rings in accent color.
+In `src/styles.css` and `src/routes/index.tsx`:
 
-### Out of scope
+- **Add JetBrains Mono** as `--font-mono` (loaded via `<link>` in `__root.tsx`). Used for metadata: eyebrows, status pills, stat labels, project index numbers, footer.
+- **Headings (Syne)**: tighten tracking further (`-0.03em` on h1/h2, `-0.02em` on h3). Drop hero size one step on desktop (`text-7xl` instead of `text-8xl`) — precision over spectacle. Keep bold weight.
+- **Body (Plus Jakarta)**: bump base line-height to 1.7 for long-form paragraphs; keep 1.5 for UI.
+- **Micro-labels**: all eyebrows, status pills, stat labels, and tag chips switch to JetBrains Mono, uppercase, `tracking-[0.14em]`, size `text-[10px]`–`text-[11px]`. Feels engineered.
+- **Numeric accents**: prefix each section header with a mono index (`01 / WORK`, `02 / ABOUT`, `03 / STACK`, `04 / CONTACT`) in the eyebrow slot. Prefix each project card with its index (`01`, `02`…) top-left in mono.
 
-No backend, no contact form, no CMS — links are `mailto:` / external URLs. No dark-mode toggle (dark only).
+## 3. Spacing refinements
+
+- **Grid rhythm**: standardize vertical section spacing to a single scale — `pt-24 md:pt-36` (down from `pt-32 md:pt-48`). Tighter, more deliberate.
+- **Container**: narrow max width from `max-w-6xl` to `max-w-5xl` for more precise line lengths.
+- **Card padding**: unify to `p-6 md:p-8` across projects/about/stack/contact cards (currently mixed `p-8 md:p-12`).
+- **Card radius**: drop from `rounded-3xl` to `rounded-2xl` — snappier, less soft.
+- **Gaps**: bento grid gap `gap-3` (from `gap-4`); stat cards gap `gap-3`.
+- **Borders**: lift border opacity slightly (`--border` from 8% → 12%) so the grid reads as a precise wireframe rather than a floaty blur.
+- **Hero**: reduce top padding (`pt-12 md:pt-20`), tighten CTA row spacing.
+
+## 4. Small polish
+
+- Replace the `Sparkles` icon in the hero eyebrow with a mono `[ FOUNDER — DAVI GRAPH ]` label (bracketed, no icon) — matches the techy vibe.
+- Footer: mono copyright + location.
+- Status pills stay colored but switch to mono type.
+
+## Files touched
+
+- `src/routes/index.tsx` — nav logo, section headers with indices, mono micro-labels, spacing/radius/gap updates, hero eyebrow, footer.
+- `src/styles.css` — add `--font-mono`, tighten heading tracking, bump body line-height, adjust `--border`.
+- `src/routes/__root.tsx` — add JetBrains Mono `<link>`, update favicon href.
+- `src/assets/davi-graph-mark.png.asset.json` — new asset pointer (D-only).
+- `src/assets/davi-graph-logo.jpg.asset.json` — deleted via `lovable-assets delete`.
+- `public/favicon.png` — replaced with the D mark.
+
+## Out of scope
+
+- No changes to sections, copy, projects data, or contact info.
+- No color palette changes beyond the border opacity nudge.
