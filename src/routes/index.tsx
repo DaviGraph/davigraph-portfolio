@@ -390,9 +390,9 @@ function Contact() {
     },
     {
       icon: Phone,
-      label: "Phone",
+      label: "WhatsApp",
       value: "0807 731 9385",
-      href: "tel:+2348077319385",
+      href: "https://wa.me/2348077319385",
       span: "md:col-span-2",
     },
   ];
