@@ -5,9 +5,12 @@ import {
   Linkedin,
   Mail,
   MapPin,
+  Moon,
   Phone,
+  Sun,
 } from "lucide-react";
 import { useReveal } from "@/hooks/use-reveal";
+import { useTheme } from "@/hooks/use-theme";
 import { useCountUp } from "@/hooks/use-count-up";
 import markAsset from "@/assets/davi-graph-mark.png.asset.json";
 
@@ -154,6 +157,8 @@ function Container({ children, className = "" }: { children: React.ReactNode; cl
 }
 
 function Nav() {
+  const { theme, toggle } = useTheme();
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/85 backdrop-blur-md">
       <Container className="flex items-center justify-between py-4">
@@ -166,12 +171,22 @@ function Nav() {
           <a href="#process" className="transition-colors hover:text-foreground">Process</a>
           <a href="#stack" className="transition-colors hover:text-foreground">Stack</a>
         </nav>
-        <a
-          href="#contact"
-          className="font-mono-label rounded-full bg-[color:var(--brand-red)] px-5 py-2.5 text-[10px] text-primary-foreground transition-opacity hover:opacity-90"
-        >
-          Get in touch
-        </a>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggle}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-[color:var(--brand-red)] hover:text-foreground"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+          <a
+            href="#contact"
+            className="font-mono-label rounded-full bg-[color:var(--brand-red)] px-5 py-2.5 text-[10px] text-primary-foreground transition-opacity hover:opacity-90"
+          >
+            Get in touch
+          </a>
+        </div>
       </Container>
     </header>
   );
