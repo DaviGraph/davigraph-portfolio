@@ -42,6 +42,7 @@
 }
 
 :root {
+  color-scheme: light;
   --radius: 0.75rem;
   --background: oklch(0.985 0.003 90);
   --foreground: oklch(0.21 0.01 270);
@@ -70,6 +71,7 @@
 
 /* Midnight Indigo — original brand dark direction */
 .dark {
+  color-scheme: dark;
   --background: oklch(0.17 0.021 275);
   --foreground: oklch(0.95 0.008 275);
   --ink: oklch(0.97 0.006 275);
