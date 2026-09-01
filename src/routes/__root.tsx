@@ -78,6 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "David Onyekachukwu" },
+      { name: "google-site-verification", content: "AiZvVj4Xx9o_QcoB5qpp7DZ0RLrcBu9co9iWE8h-Gss" },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: "David Onyekachukwu" },
       { name: "twitter:card", content: "summary_large_image" },
