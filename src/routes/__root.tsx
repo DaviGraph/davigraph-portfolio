@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: "David Onyekachukwu" },
+      { name: "author", content: "David Omeh" },
       { name: "google-site-verification", content: "AiZvVj4Xx9o_QcoB5qpp7DZ0RLrcBu9co9iWE8h-Gss" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "David Onyekachukwu" },
+      { property: "og:site_name", content: "David Omeh" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
@@ -89,8 +89,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
+        rel: "preload",
+        as: "style",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap",
+      },
+      {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap",
       },
     ],
   }),
@@ -125,7 +130,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

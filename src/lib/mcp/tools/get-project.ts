@@ -7,7 +7,11 @@ export default defineTool({
   title: "Get project",
   description: "Get full details for one portfolio project by name (case-insensitive).",
   inputSchema: {
-    name: z.string().describe("Project name, e.g. CrossDrop, ElonVest, StudyPadi or ARIA."),
+    name: z
+      .string()
+      .describe(
+        "Project name, e.g. Israelee Academy, Cleanique, 61-Day Challenge, CrossDrop, ElonVest, or StudyPadi.",
+      ),
   },
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: ({ name }) => {

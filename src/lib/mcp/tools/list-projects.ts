@@ -6,10 +6,10 @@ export default defineTool({
   name: "list_projects",
   title: "List projects",
   description:
-    "List the projects in David Onyekachukwu's portfolio, optionally filtered by status (LIVE, CLIENT PROJECT, IN PROGRESS, PROTOTYPE).",
+    "List the projects in David Omeh's portfolio, optionally filtered by status (LIVE, CLIENT PROJECT, IN PROGRESS).",
   inputSchema: {
     status: z
-      .enum(["LIVE", "CLIENT PROJECT", "IN PROGRESS", "PROTOTYPE"])
+      .enum(["LIVE", "CLIENT PROJECT", "IN PROGRESS"])
       .optional()
       .describe("Only return projects with this status."),
   },
