@@ -28,12 +28,7 @@
             "status": {
               "description": "Only return projects with this status.",
               "type": "string",
-              "enum": [
-                "LIVE",
-                "CLIENT PROJECT",
-                "IN PROGRESS",
-                "PROTOTYPE"
-              ]
+              "enum": ["LIVE", "CLIENT PROJECT", "IN PROGRESS", "PROTOTYPE"]
             }
           }
         },
@@ -57,9 +52,7 @@
               "description": "Project name, e.g. CrossDrop, ElonVest, StudyPadi or ARIA."
             }
           },
-          "required": [
-            "name"
-          ]
+          "required": ["name"]
         },
         "outputSchema": null
       },

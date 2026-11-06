@@ -5,7 +5,7 @@ export default defineTool({
   name: "get_profile",
   title: "Get profile",
   description:
-    "Get David Onyekachukwu's public profile: who he is, where he's based, his education, how he works and his technology stack.",
+    "Get David Omeh's public profile: who he is, where he's based, his education, how he works and his technology stack.",
   inputSchema: {},
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: () => {
