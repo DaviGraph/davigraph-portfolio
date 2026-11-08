@@ -156,8 +156,8 @@ function Portfolio() {
         <Marquee />
         <Services />
         <AutomationFlow />
-        <Work />
         <About />
+        <Work />
         <Contact />
       </main>
       <Footer />
@@ -208,16 +208,16 @@ function Nav() {
             Services
           </a>
           <a
-            href="#work"
-            className="transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D80500] rounded-sm py-1"
-          >
-            Work
-          </a>
-          <a
             href="#about"
             className="transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D80500] rounded-sm py-1"
           >
             About
+          </a>
+          <a
+            href="#work"
+            className="transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#D80500] rounded-sm py-1"
+          >
+            Work
           </a>
         </nav>
 
@@ -578,7 +578,7 @@ function Work() {
       <Container>
         <div data-reveal className="reveal mb-14 md:mb-18">
           <span className="font-mono-label text-xs text-[#D80500] dark:text-[#FF3B30] font-bold">
-            03 // PORTFOLIO
+            04 // PORTFOLIO
           </span>
           <h2 className="font-display text-4xl md:text-6xl font-black mt-3">Work you can open.</h2>
           <p className="mt-3 text-base md:text-lg text-muted-foreground font-medium">
@@ -695,7 +695,7 @@ function About() {
           <div className="lg:col-span-7 flex flex-col justify-center">
             <div data-reveal className="reveal">
               <span className="font-mono-label text-xs text-[#D80500] dark:text-[#FF3B30] font-bold">
-                04 // ABOUT DAVID
+                03 // ABOUT DAVID
               </span>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black mt-3 leading-tight">
                 I take the stress out of running a business.
